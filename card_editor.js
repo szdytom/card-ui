@@ -52,7 +52,6 @@ function createCard(name = "", type = cardTypes[0], description = "") {
     });
     card.appendChild(typeSelect);
 
-    // 修改为 textarea，并设置默认显示4行字
     const descriptionInput = document.createElement("textarea");
     descriptionInput.value = description;
     descriptionInput.rows = 7;
@@ -72,12 +71,13 @@ function createCard(name = "", type = cardTypes[0], description = "") {
 }
 function exportDeck() {
     const cards = Array.from(cardContainer.children).map((card) => {
-        const inputs = card.getElementsByTagName("input");
+        const title = card.getElementsByTagName("input")[0];
+        const desc = card.getElementsByTagName("textarea")[0];
         const select = card.getElementsByTagName("select")[0];
         return {
-            name: inputs[0].value,
+            name: title.value,
             type: select.value,
-            description: inputs[1].value
+            description: desc.value
         };
     });
 
