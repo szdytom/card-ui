@@ -55,7 +55,7 @@ function createCard(name = "", type = cardTypes[0], description = "") {
     // 修改为 textarea，并设置默认显示4行字
     const descriptionInput = document.createElement("textarea");
     descriptionInput.value = description;
-    descriptionInput.rows = 4;
+    descriptionInput.rows = 7;
     card.appendChild(descriptionInput);
 
     const deleteButton = document.createElement("button");
